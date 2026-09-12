@@ -29,7 +29,7 @@ function vr_df()
     
     $oreLucrate = 20;
 
-    
+    //cazul 1
     $costProiect = $hourlyRate * $oreLucrate;
 
     $comisionPlatforma = $costProiect * 10 / 100;
@@ -37,6 +37,22 @@ function vr_df()
     $castigFreelancer = $costProiect - $comisionPlatforma;
 
 
-    require "./app/views/prewiew/index.php";
+    //cazul 2
+    $oreLucrate = 25;
+    $costProiect = $hourlyRate * $oreLucrate;
+
+    $comisionPlatforma = $costProiect * 10 / 100;
+
+    $castigFreelancer = $costProiect - $comisionPlatforma;
+
+    //cazul 3
+    $oreLucrate = 50;
+    $costProiect = $hourlyRate * $oreLucrate;
+
+    $comisionPlatforma = $costProiect * 10 / 100;
+
+    $castigFreelancer = $costProiect - $comisionPlatforma;
+
+    require __DIR__ . "/views/__start__.php";
 }
 

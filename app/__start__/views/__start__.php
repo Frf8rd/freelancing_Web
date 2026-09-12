@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $denumireProiect ?></title>
-    <link rel="stylesheet" href="../../../public/assets/css/preview.css">
+    <link rel="stylesheet" href="assets/css/preview.css">
 </head>
 
 <body>
