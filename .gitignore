@@ -1,2 +1,6 @@
 tests_page/
 tests/
+
+environment/.env*
+environment/
+vendor/

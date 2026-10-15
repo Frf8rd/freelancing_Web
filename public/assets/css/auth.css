@@ -1,0 +1,12 @@
+/* Login: titlu urias in stanga, formularul in dreapta jos, campuri doar cu linie */
+.login-box { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6vw; min-height: 60vh; align-content: start; }
+.login-box h1 { color: var(--white); font-size: clamp(48px, 9vw, 130px); font-weight: 200; line-height: .95; letter-spacing: -.045em; }
+.login-box .muted { margin-top: 20px; }
+.login-box form { grid-area: 1 / 2 / 3 / 3; align-self: end; }
+.login-box label { display: block; margin: 22px 0 0; color: var(--white); font-size: 14px; }
+.login-box input { width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--white); font-size: 20px; }
+.login-box input:focus { outline: 0; border-color: var(--pink); }
+.btn { margin-top: 32px; padding: 14px 32px; border: 0; border-radius: 4px 40px 4px 4px; background: var(--pink); color: var(--white); font: 15px "Consolas", monospace; text-transform: uppercase; letter-spacing: .05em; cursor: pointer; }
+.btn:hover { filter: brightness(1.1); }
+
+@media (max-width: 700px) { .login-box { grid-template-columns: 1fr; } .login-box form { grid-area: auto; margin-top: 30px; } }

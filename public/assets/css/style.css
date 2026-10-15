@@ -1,0 +1,44 @@
+:root { --bg: #10141f; --panel: #171c2a; --line: #232a3b; --text: #aab1c2; --white: #fff; --pink: #ff3d8b; --rail: 72px; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: "Inter", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+a { color: var(--pink); }
+
+/* BARA VERTICALA: brandul e rotit pe verticala, fixata in stanga */
+.site-header { position: fixed; inset: 0 auto 0 0; width: var(--rail); z-index: 20; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 16px 0; border-right: 1px solid var(--line); background: var(--bg); }
+.brand { writing-mode: vertical-rl; transform: rotate(180deg); color: var(--white); text-decoration: none; font-size: 24px; font-weight: 300; letter-spacing: .12em; }
+.brand:hover { color: var(--pink); }
+.icon-btn { background: none; border: 0; color: var(--white); cursor: pointer; width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.icon-btn:hover { background: var(--pink); }
+
+/* MENIU: ecran intreg, link-uri uriase */
+.overlay { display: none; }
+.sidebar { position: fixed; inset: 0; z-index: 40; background: var(--pink); transform: translateY(-100%); transition: transform .5s cubic-bezier(.7, 0, .2, 1); display: flex; flex-direction: column; justify-content: center; padding: 0 8vw; }
+.sidebar.open { transform: none; }
+.sidebar #menuClose { position: absolute; top: 16px; right: 16px; background: var(--bg); }
+.sidebar nav a { display: block; width: fit-content; color: var(--bg); text-decoration: none; font-size: clamp(48px, 12vw, 150px); font-weight: 300; line-height: 1.05; letter-spacing: -.03em; transition: transform .3s; }
+.sidebar nav a:hover { color: var(--white); transform: translateX(3vw); }
+.sidebar nav a.active { font-weight: 700; }
+
+/* CONTINUT */
+.site-body { flex: 1; margin-left: var(--rail); padding: 6vw 5vw 10vw; }
+
+/* pagini simple: titlu urias in stanga, textul intr-o coloana ingusta mutata jos-dreapta */
+.page { display: grid; grid-template-columns: repeat(12, 1fr); min-height: 60vh; align-content: space-between; }
+.page h1 { grid-column: 1 / -1; color: var(--white); font-size: clamp(56px, 15vw, 220px); font-weight: 200; line-height: .9; letter-spacing: -.05em; }
+.page p { grid-column: 7 / -1; font-size: 20px; padding-top: 24px; border-top: 2px solid var(--pink); color: var(--white); }
+
+/* FOOTER: numele proiectului, urias si taiat de marginea de jos */
+.site-footer { margin-left: var(--rail); padding: 0 5vw; overflow: hidden; }
+.site-footer p { font-size: 14px; }
+.site-footer .big { display: block; font-size: 14vw; font-weight: 700; line-height: .78; letter-spacing: -.05em; white-space: nowrap; color: var(--panel); margin: 2vw 0 -3vw; user-select: none; }
+
+/* TELEFON: bara devine orizontala */
+@media (max-width: 700px) {
+    :root { --rail: 0px; }
+    .site-header { inset: 0 0 auto 0; width: 100%; height: 60px; flex-direction: row; padding: 0 12px; border: 0; border-bottom: 1px solid var(--line); }
+    .brand { writing-mode: horizontal-tb; transform: none; font-size: 20px; }
+    .site-body { padding-top: 90px; }
+    .page p { grid-column: 1 / -1; }
+}
