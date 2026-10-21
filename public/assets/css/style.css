@@ -20,6 +20,10 @@ a { color: var(--pink); }
 .sidebar nav a { display: block; width: fit-content; color: var(--bg); text-decoration: none; font-size: clamp(48px, 12vw, 150px); font-weight: 300; line-height: 1.05; letter-spacing: -.03em; transition: transform .3s; }
 .sidebar nav a:hover { color: var(--white); transform: translateX(3vw); }
 .sidebar nav a.active { font-weight: 700; }
+.sidebar nav a.auth-nav-link { margin-top: 20px; color: var(--white); font-size: clamp(16px, 2vw, 22px); font-weight: 500; letter-spacing: 0; line-height: 1.4; }
+.sidebar nav a.auth-nav-link:hover { color: var(--white); transform: translateX(8px); }
+.sidebar nav a.signout-link { margin-top: 24px; color: var(--white); font-size: clamp(16px, 2vw, 22px); font-weight: 500; letter-spacing: 0; line-height: 1.4; }
+.sidebar nav a.signout-link:hover { color: var(--white); transform: translateX(8px); }
 
 /* CONTINUT */
 .site-body { flex: 1; margin-left: var(--rail); padding: 6vw 5vw 10vw; }

@@ -37,7 +37,7 @@ $js          = $js ?? [];
 
         <a class="brand" href="index.php"><?= NUME_PROIECT ?></a>
 
-        <a class="icon-btn" href="index.php?page=login" aria-label="Autentificare">
+        <a class="icon-btn" href="index.php?page=<?= isset($_SESSION['rol']) ? ($_SESSION['rol'] === 'admin' ? 'admin' : 'cont') : 'login' ?>" aria-label="<?= isset($_SESSION['rol']) ? 'Contul meu' : 'Autentificare' ?>">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 21c0-4 4-7 8-7s8 3 8 7" />
@@ -51,8 +51,14 @@ $js          = $js ?? [];
         <button class="icon-btn" id="menuClose" aria-label="Închide meniul">✕</button>
         <nav>
             <?php foreach ($menuItems as $slug => $label): ?>
-                <a href="index.php?page=<?= $slug ?>" class="<?= $slug === $currentPage ? 'active' : '' ?>"><?= $label ?></a>
+                <?php if ($slug === 'login' && isset($_SESSION['rol'])) continue; ?>
+                <?php if ($slug === 'login' && $currentPage === 'login') continue; ?>
+                <a href="index.php?page=<?= $slug === 'login' && isset($_SESSION['rol']) ? ($_SESSION['rol'] === 'admin' ? 'admin' : 'cont') : $slug ?>" class="<?= $slug === 'login' ? 'auth-nav-link' : '' ?> <?= $slug === $currentPage ? 'active' : '' ?>"><?= $label ?></a>
             <?php endforeach; ?>
+            <?php if (isset($_SESSION['rol'])): ?>
+                <?php if ($_SESSION['rol'] === 'admin' && $currentPage !== 'admin'): ?><a href="index.php?page=admin">Administrare</a><?php endif; ?>
+                <a class="signout-link" href="index.php?page=logout">Ieșire (<?= htmlspecialchars($_SESSION['rol']) ?>)</a>
+            <?php endif; ?>
         </nav>
     </aside>
 

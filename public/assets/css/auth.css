@@ -10,3 +10,18 @@
 .btn:hover { filter: brightness(1.1); }
 
 @media (max-width: 700px) { .login-box { grid-template-columns: 1fr; } .login-box form { grid-area: auto; margin-top: 30px; } }
+.login-box .form-message, .login-box .auth-link { grid-column: 1 / -1; margin-top: 18px; }
+.content-panel { max-width: 900px; margin: 30px auto; padding: 30px; background: var(--panel); border: 1px solid var(--line); }
+.content-panel h2 { color: var(--white); font-size: clamp(26px, 4vw, 42px); font-weight: 300; margin-bottom: 20px; }
+.search-form, .stack-form { display: grid; gap: 12px; max-width: 620px; }
+.content-panel label { color: var(--white); }
+.content-panel input, .content-panel textarea { width: 100%; padding: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--white); font: inherit; }
+.content-panel input:focus, .content-panel textarea:focus { outline: 1px solid var(--pink); }
+.content-panel .btn { justify-self: start; }
+.service-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 28px; }
+.service-list article { padding: 20px; background: var(--bg); border-left: 3px solid var(--pink); }
+.service-list h3 { color: var(--white); margin-bottom: 8px; }
+.form-message { padding: 12px 16px; color: var(--white); border-left: 3px solid var(--pink); background: var(--panel); }
+.form-message.success { border-color: #72d6a0; }
+.form-message.error { border-color: #ff6b6b; }
+.auth-link a { color: var(--pink); }
